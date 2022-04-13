@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import CounterBloc, { CounterEvent } from "./CounterEvent";
 import { useBloc } from "./state";
 
-const Count = () => {
+const CountView = () => {
   const [state, bloc] = useBloc(CounterBloc, {
     create: () => new CounterBloc(),
   });
@@ -33,4 +33,4 @@ const Count = () => {
 
 };
 
-export default Count;
+export default CountView;

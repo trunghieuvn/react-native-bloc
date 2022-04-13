@@ -1,22 +1,35 @@
 import React from 'react';
 import {
-  Alert,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
   SafeAreaView,
   StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-// Modules
-import { Controller, useForm } from 'react-hook-form';
-import Count from '../bloc/CountView';
-// Components
+import CountView from '../bloc/CountView';
+
+const CountScreen: React.FC = () => {
+  const styles = useStyles();
+
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.root}>
+        <SafeAreaView style={styles.safeAreaView}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={styles.content}
+          >
+            <CountView></CountView>
+
+          </KeyboardAvoidingView>
+        </SafeAreaView>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
+
 
 function useStyles() {
   return StyleSheet.create({
@@ -64,50 +77,8 @@ function useStyles() {
     safeAreaView: {
       flex: 1,
     },
-    subtitle: {
-      color: 'rgba(235, 235, 245, 0.6)',
-      fontSize: 17,
-      fontWeight: '400',
-      lineHeight: 22,
-    },
-    textButton: {
-      color: '#FFFFFF',
-      fontSize: 15,
-      fontWeight: '400',
-      lineHeight: 20,
-    },
-    textInput: {
-      color: '#FFFFFF',
-      flex: 1,
-    },
-    title: {
-      color: '#FFFFFF',
-      fontSize: 28,
-      fontWeight: '700',
-      lineHeight: 34,
-    },
   });
 }
 
-const CountScreen: React.FC = () => {
- 
-  const styles = useStyles();
-
-  return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.root}>
-        <SafeAreaView style={styles.safeAreaView}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={styles.content}
-          >
-            <Count></Count>
-
-          </KeyboardAvoidingView>
-        </SafeAreaView>
-      </View>
-    </TouchableWithoutFeedback>
-  );
-};
 
 export default CountScreen;
