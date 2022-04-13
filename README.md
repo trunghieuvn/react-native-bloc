@@ -15,8 +15,14 @@ npx react-native run-android
 ```
 
 # Issue
+## issue: error listen EADDRINUSE: address already in use :::8081.
 
-REM issue: error listen EADDRINUSE: address already in use :::8081.
-REM netstat -ano|findstr "PID :8081"
-REM taskkill /pid 5700 /f
-REM taskkill /pid 15088 /f
+```
+  netstat -ano|findstr "PID :8081"
+  
+  taskkill /pid 5700 /f
+  taskkill /pid 15088 /f
+```
+
+# Bloc pattern
+- https://blac-docs.vercel.app/docs/blac-core/bloc-basics
